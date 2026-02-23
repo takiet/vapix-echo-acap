@@ -1,0 +1,3 @@
+#!/bin/sh
+PROCESS_ID=$(pidof vapix_echo)
+logger -t "vapix_echo[$PROCESS_ID]" -p INFO "Hello VAPIX!"

@@ -1,0 +1,14 @@
+ARG ARCH=armv7hf
+ARG VERSION=12.8.0
+ARG UBUNTU_VERSION=24.04
+ARG REPO=axisecp
+ARG SDK=acap-native-sdk
+
+FROM ${REPO}/${SDK}:${VERSION}-${ARCH}-ubuntu${UBUNTU_VERSION}
+
+# Building the ACAP application
+COPY ./app /opt/app/
+RUN mkdir -p /opt/app/html
+COPY ./scalar/out/ /opt/app/html/
+WORKDIR /opt/app
+RUN . /opt/axis/acapsdk/environment-setup* && acap-build ./
