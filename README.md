@@ -6,6 +6,19 @@ ACAP app of VAPIX testing tool
 🧑‍💻 **Personal Project**  
 This work is done in my personal capacity and has no relation to my employer or any organization I am affiliated with.
 
+## Prerequisites
+
+1. Install dependencies:
+   ```bash
+   cd scalar
+   npm install
+   ```
+
+2. Create `.env.production` file in the `scalar` directory with the following content:
+   ```
+   ASSET_PREFIX=/local/vapix_echo/
+   ```
+
 ## Usage
 
 ### Installing the ACAP on Axis Camera
