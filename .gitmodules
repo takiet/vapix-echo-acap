@@ -1,0 +1,3 @@
+[submodule "oas/vapix"]
+	path = oas/vapix
+	url = https://github.com/takiet/vapix-oas.git
