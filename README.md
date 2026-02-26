@@ -10,7 +10,8 @@ This work is done in my personal capacity and has no relation to my employer or 
 
 0. Clone this repo with submodule
    ```bash
-   git clone --recursive https://github.com/takiet/vapix-echo-acap.git
+   git clone --recurse-submodules https://github.com/takiet/vapix-echo-acap.git
+   git submodule update --remote --merge
    ```
 
 1. Install dependencies:
