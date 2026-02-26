@@ -3,6 +3,8 @@
 rm -rf ./build
 
 cd scalar
+mkdir -p public/spec
+cp ../oas/vapix/spec/openapi.yaml public/spec/.
 npm run build
 
 cd ..

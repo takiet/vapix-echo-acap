@@ -8,9 +8,16 @@ This work is done in my personal capacity and has no relation to my employer or 
 
 ## Prerequisites
 
+0. Clone this repo with submodule
+   ```bash
+   git clone --recursive https://github.com/takiet/vapix-echo-acap.git
+   ```
+
 1. Install dependencies:
    ```bash
    cd scalar
+   mkdir -p public/spec
+   cp ../oas/vapix/spec/openapi.yaml .
    npm install
    ```
 
