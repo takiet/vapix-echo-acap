@@ -1,21 +1,28 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import SwaggerUIWrapper from '@/components/swagger-ui-wrapper';
+import type { ThemeName } from '@/lib/swagger-theme';
 import 'swagger-ui-react/swagger-ui.css';
 
 export default function SwaggerPage() {
-  const swaggerUrl = process.env.NEXT_PUBLIC_SWAGGER_URL;
-  const defaultTheme = (process.env.NEXT_PUBLIC_SWAGGER_DEFAULT_THEME || 'default') as
-    | 'default'
-    | 'feeling-blue'
-    | 'flattop'
-    | 'monokai'
-    | 'material'
-    | 'muted'
-    | 'newspaper'
-    | 'outline';
+  const [url, setUrl] = useState<string | undefined>(undefined);
+  const [defaultTheme, setDefaultTheme] = useState<ThemeName>('default');
+
+  useEffect(() => {
+    const file = process.env.NEXT_PUBLIC_SWAGGER_FILE || 'openapi.yaml';
+    const theme = (process.env.NEXT_PUBLIC_SWAGGER_DEFAULT_THEME || 'default') as ThemeName;
+    setUrl(`/${file}`);
+    setDefaultTheme(theme);
+  }, []);
+
+  if (!url) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
-      <SwaggerUIWrapper url={swaggerUrl} defaultTheme={defaultTheme} />
+      <SwaggerUIWrapper url={url} defaultTheme={defaultTheme} />
     </div>
   );
 }
